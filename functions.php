@@ -7,4 +7,16 @@ function load_scripts() {
 
 add_action( 'wp_enqueue_scripts', 'load_scripts' );
 
+function practice_customizer_register( $wp_customize ) {
+	$wp_customize->add_section( 'header_colors', array(
+		'title' => __('Colors', 'practice' ),
+		'description' => 'Modify theme colors'
+	));
+	$wp_customize->add_section( 'background_colors', array(
+		'default' => '#ffffff',
+	));
+}
+
+add_action( 'customize_register', 'practice_customizer_register' );
+
 ?>
